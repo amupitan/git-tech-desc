@@ -19,6 +19,8 @@ This issue encouraged the development of decentralized systems to offer a soluti
 ## IV. The snapshot concept
 A repository is a folder that is being tracked by Git. Each step in the version history of a repository is called a commit. Most version control systems, such as Subversion, store a file and then the changes between each commit of that file. On the other hand, Git stores an entire snapshot of the repository in each commit. If a file hasn’t changed, Git uses a link to a previous version of that file rather than making an identical copy, to be more efficient. The data can be seen as a stream of snapshots with each snapshot being referenced by a commit. This way, Git can create branches from a snapshot and maintain several versions. The figure below shows an example of four different commits or versions inside a repository. The dashed line boxes indicate a file that has not changed between versions. The black arrows between identical files depicts how Git avoids making duplicate files when no changes are made by referencing back to the original file in the first commit that it appears.
 
+![Snapshot concept](/snapshot.png)
+
 ## V. Real-world example of Git versioning stages
 Files in a repository have to be selected before they are committed. This way, you can choose what files you want in the commit. Git manages this by having three levels: the working directory, the staging area and the local repository. A file can at one of these levels depending on what the current state of the file is. A file can either be in the untracked, committed, modified, or staged state.
 
@@ -33,5 +35,78 @@ Whenever a file that has already been staged is modified, it becomes in the modi
 
 ### Remote Repository
 Think of a remote repository as a backup of your git repository that is stored online. When you want to share your repository with others, you upload it to a remote storage. A popular example of this is Github. When you upload your repository, it can be downloaded and viewed by other people. This is generally how people collaborate on a repository - they all have their individual local copies but share a remote version that they can upload to. We will not discuss this because it is out of scope on how git works. In the event that you lose your local copy of your repository, you can always download it from the remote storage. 
+
+![Git Workflow](/workflow.png)
+
+## Using Git commands to see the workflow [REWORD]
+We will go over some git commands and how they show the git workflow. These examples are done in a git terminal. Getting a git terminal is out of scope of this description as we focus on how it works, however, you can download the program and find installation instructions on Git’s website at www.git-scm.com/downloads.
+
+
+### Git init
+This is used to create a new Git repository. We will create a new folder and in the terminal, we will run `git init` to make it a Git repository.
+
+```
+git init
+```
+
+Now that we have a repository, we can add file(s) to our repository. We can create a new python file called `main.py` in our directory. We can then type in the following into the file:
+```
+---main.py---
+print ‘This is the first file in our Git repository’
+```
+Another file people tend to add in their Git repository is a README file. This is just a file that describes what the repository is about. Let us create a new file and name it README. We can edit the file to this:
+```
+---README---
+This is a repository about learning how Git works
+------
+```
+
+### Git status
+A helpful command in Git is the `git status` command. It is used to check the state of the files in the repository. If you run git status, you will see that `main.py` and `README` are under the “untracked files” section in red.
+
+![git status](/git_status.png)
+
+### Git Add
+
+At this point, we want to actually add our file to the repository. We do this by first adding it to the staging area by using the `git add` command. Let’s add our `README` file first by running:
+
+```
+git add README
+```
+
+![git add](/git_add.png)
+
+We can now check the status of our files using `git status`.
+
+![check git status](/check_status.png)
+
+Now we can see our README in green which means it is in the staging area and ready to be committed. We can also see that main.py is till in the untracked state.
+
+### Git Commit
+Since our README file is in the staging area, it is ready to be committed. We can run the “git commit” command to create a commit. We give our commit a name so we can look back at what we did in that commit without looking through the changes. We run `git commit -m <name of commit>`.
+
+![git commit](/git_commit.png)
+
+We have just created out first commit (also known as the root commit). We can now check that the status of our files using `git status`.
+
+![check git status](/check_status2.png)
+
+Uh-oh. Our README file is gone! That’s actually a good thing. This means our README file has been committed and is no longer in the staging area.
+
+We have gone through a complete workflow of a git repository. Let’s see what happens when a file is modified:
+
+
+## References
+
+- Linux Foundation. “10 Years of Git: An Interview with Git Creator Linus Torvalds.” 22 Aug. 2017, 
+www.linuxfoundation.org/blog/10-years-of-git-an-interview-with-git-creator-linus-torvalds
+- Microsoft. “History in Git.” Visual Studios Team Services, 14 Mar. 2018, 	
+docs.microsoft.com/en-us/vsts/git/concepts/history?view.
+- Stack Overflow. “Stack Overflow Developer Survey 2018” 2018 Developer Survey Results, 
+2018, https://insights.stackoverflow.com/survey/2018
+
+
+
+
 
 
