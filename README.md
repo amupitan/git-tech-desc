@@ -1,20 +1,21 @@
 # How Git Works
 ## I. The history of version control and definition of Version control
-Software engineers have been faced with the issue of how best to efficiently and effectively share code since the advent of their profession. Engineers have tried sending code through email or uploading their code to a storage for everyone else to see but this became impractical as code size changes. [SOURCE youtube]In Linus Torvalds’ talk at Google, he talked about how it took a company three days to merge all the code from everyone and how everyone would have to stop working for those three days. Even though this inconvenient method worked, it still came with its drawbacks. For example, once all the code was published, it was tiring to rollback to a previous version if an error was detected. Engineers would have to manually try to find out at what point that error was introduced to the code and then try to change the code back to its previous state if needed. This was obviously inconvenient and led to the creation of version control. 
+Software engineers have been faced with the issue of how best to efficiently and effectively share code since the advent of their profession. Engineers have tried sending code through email or uploading their code to a storage for everyone else to see but this became impractical as code size changes [2].In Linus Torvalds’ talk at Google, he talked about how it took a company three days to merge all the code from everyone and how everyone would have to stop working for those three days. Even though this inconvenient method worked, it still came with its drawbacks. For example, once all the code was published, it was tiring to rollback to a previous version if an error was detected. Engineers would have to manually detect what point that error was introduced to the code and then change the code back to its previous state if needed. This was obviously inconvenient and led to the creation of version control [1]. 
 
-[SOURCE git-scm, about version control]Version control is a system that tracks the changes to a file, or set of files over time so it can be rollbacked to a previous version. Version control systems were created and used but eventually they all became commercial and none of them supported free software. [SOURCE anyone]This was a problem for the development of the Linux Operating system because it was a free software and couldn’t afford to pay for version control. 
+Version control is a system that tracks the changes to a file, or set of files over time so it can be rollbacked to a previous version. Version control systems were created and used but eventually they all became commercial and none of them supported free software. This was a problem for the development of the Linux Operating system because it was a free software and couldn’t afford to pay for version control. 
 
 
-[SOURCE ??] Fed up with then current systems, the developer of the Linux Kernel, Linus Torvalds, and his team wanted an alternative system to manage their project. Their criteria specified that saving revisions should take no more than three seconds. Furthermore, they took preceding systems such as Concurrent Version System (CVS) as examples of what not to make. Consequently, the control system they would create was designed as a distributed version control architecture. Their solution came to be called Git and has since grown into the most popular version control system amongst professional developers. Git is a version control system (VCS) for managing electronic files and collaboration that is characterized by its distributed revision control. Distributed revision control refers to copying an entire project including the history of all the changed rather than just copying the current version.
+Fed up with then current systems, the developer of the Linux Kernel, Linus Torvalds, and his team wanted an alternative system to manage their project [2]. Their criteria specified that saving revisions should take no more than three minutes. Furthermore, they took preceding systems such as Concurrent Version System (CVS) as examples of what not to make. Consequently, the control system they would create was designed as a distributed version control architecture. Distributed revision control refers to copying an entire project including the history of all the changed rather than just copying the current version. Their solution came to be called Git and has since grown into the most popular version control system amongst developers. Git is a version control system (VCS) for managing electronic files and collaboration that is characterized by its distributed revision control design. 
 
 ## II. Examples of version control systems
-The version control systems Concurrent Version System (CVS), Subversion, and Mercurial were all designed to address the same issue of revision management that Git solved. Each system is designed around a unique architecture that offers various advantages and disadvantages to the user.
+The version control systems Concurrent Version System (CVS), Subversion, and Mercurial were all designed to address the issues of revision management that were plaguing software engineers. The designs of of each system reveal the evolution of revision control leading to Git with each system offering various features and limitations to the users.
 
-First released in 1990, CVS is the most matured of the three management systems. The system was modeled around a client to server architecture, meaning that file changes are made on the user’s computer then stored on a central computer server. The centralized design is useful in providing a single source of project revisions that is commonly desirable for professional projects. Additionally, numerous bugs have been resolved through heavy usage over the years, resulting in a highly reliable software. However, the system was not designed with a modern project in mind and has since become antiquated. Regardless, CVS helped pioneer version control technology and served as a predecessor to newer software such as Subversion.
+CVS is the oldest of the three management systems, first released in 1990. The system was modeled around a client to server architecture, meaning that file changes are made on the user’s computer then stored on a central computer server. Although the decentralized design differs significantly from Git, it is often desirable to have a single source of revision on professional projects. Nevertheless, the system has become antiquated for usage on modern projects. Regardless, CVS pioneered version control technology and inspired newer software such as Subversion. 
 
-Initially released in 2000, Subversion was designed as a compatible successor to CVS and consequently gained wide acceptance with professional developers. Like CVS, Subversion applied the centralized client-to-server storage technique, providing the same single source benefits as CVS. Unlike its predecessor, Subversion was released as an open source software, meaning that anyone could view, utilize, or contribute to the program. Furthermore, this aspect of the system encourages continuous improvements to be added and gives transparency to its operation. Being a free to use software helped grow the popularity of Subversion among professional developers. In 2018, studies revealed the Subversion is the second most popular version control system among professional developers, behind Git [SOURCE stack-overflow] (Stack Overflow, 2018). 
+Released in 2000, Subversion was a compatible successor to CVS. Like its predecessor, Subversion applies the centralized client-to-server storage technique and provides the same single source benefits. Unlike its predecessor, Subversion was released as an open source software, meaning anyone could view, utilize, or contribute to the program. This decision encourages continuous improvements to be made and gives operational transparency which is favored by many software engineers. Being a free software also helped grow the popularity of Subversion among professional developers. To included the same benefits, Git was designed to be free and open source like Subversion. 
 
-Released in 2005, Mercurial varied significantly from preceding centralized software architectures such as CVS and Subversion to solve the issue of revision control. Instead of client to single server storage, Mercurial deploys the idea of distributed version control. This alternative design does not rely on a central server to store all the old copies of a file. Rather, the system creates copies of the files locally to store the full history of the project. The file can then be shared and collaborated on with others through third-party applications such as BitBucket or GitHub. The decentralized version control systems currently possess the majority of usage amongst professional developers because of the ability to make changes and keep revision control running while not connected to the centralized server. Git operates under a similar concept to Mercurial. 
+Mercurial, released 2005, strayed from the centralized approaches of CVS and Subversion to address the issue of revision control. Instead of single server storage, Mercurial deploys the idea of distributed version control. This alternative design does not rely on a central server to store all the old copies of a file. Rather, the system creates copies of the files locally to store the full history of the project. The decentralized version control systems currently possess the majority usage amongst professional developers because of the ability to make changes and maintain revision control running while not connected to the centralized server. Git and Mercurial operate under the same design concepts.
+ 
 
 ## III. Comparison of the internal workings of some popular systems to Git 
 Centralized version control systems addressed the majority of early issues that software engineers experienced while sharing or saving code. A central server housed the storage of the version history for each file. Users would maintain the latest version of the file on their computer and could change their local copy to any older version by downloading the information from the central server. 
@@ -33,7 +34,8 @@ Files in a repository have to be selected before they are committed. This way, y
 
 ### Working Directory
 By default, a new file is in the working directory and not yet part of the git repository. The files in this level are in the untracked state and not yet tracked by Git.
-Staging Area
+
+### Staging Area
 Whenever a file is added to a git repository, it is moved from the working directory to the staging area and is in the staged state. Multiple files can be added to the staging area. 
 
 ### Git Repository
@@ -41,7 +43,7 @@ The staging area can then be committed, which moves all the files from the stagi
 Whenever a file that has already been staged is modified, it becomes in the modified state. This file can then be added to staging area and committed again. After the commit, a new snapshot is created, and the file is captured in the new snapshot. 
 
 ### Remote Repository
-Think of a remote repository as a backup of your git repository that is stored online. When you want to share your repository with others, you upload it to a remote storage. A popular example of this is Github. When you upload your repository, it can be downloaded and viewed by other people. This is generally how people collaborate on a repository - they all have their individual local copies but share a remote version that they can upload to. We will not discuss this because it is out of scope on how git works. In the event that you lose your local copy of your repository, you can always download it from the remote storage. 
+Think of a remote repository as a backup of your git repository that is stored online. When you want to share your repository with others, you upload it to a remote storage. A popular example of this is Github or BitBucket. After you upload your repository, it can be downloaded and viewed by other people. This is generally how people collaborate on a repository - they all have their individual local copies but share a remote version that they can upload to. We will not discuss this because it is out of scope on how git works. In the event that you lose your local copy of your repository, you can always download it from the remote storage. 
 
 ![Git Workflow](/workflow.png)
 
@@ -50,7 +52,7 @@ We will go over some git commands and how they show the git workflow. These exam
 
 
 ### Git init
-This is used to create a new Git repository. We will create a new folder and in the terminal, we will run `git init` to make it a Git repository.
+This is used to create a new Git repository. We will create a new folder and in the terminal, we will run “git init” to make it a Git repository.
 
 ```
 git init
@@ -87,7 +89,7 @@ We can now check the status of our files using `git status`.
 
 ![check git status](/check_status.png)
 
-Now we can see our README in green which means it is in the staging area and ready to be committed. We can also see that main.py is till in the untracked state.
+Now we can see our README in green which means it is in the staging area and ready to be committed. We can also see that main.py has remained in the untracked state.
 
 ### Git Commit
 Since our README file is in the staging area, it is ready to be committed. We can run the “git commit” command to create a commit. We give our commit a name so we can look back at what we did in that commit without looking through the changes. We run `git commit -m <name of commit>`.
@@ -100,17 +102,55 @@ We have just created out first commit (also known as the root commit). We can no
 
 Uh-oh. Our README file is gone! That’s actually a good thing. This means our README file has been committed and is no longer in the staging area.
 
-We have gone through a complete workflow of a git repository. Let’s see what happens when a file is modified:
+We have gone through a complete workflow of a git repository. Let’s add our main.py file and check the status of our repository.
+
+![git add commit](/git_add_commit.png)
+
+#### Modifying Files
+We can see that our working tree is clean which means there are no uncommitted changes. Now let’s update our code to use quarters when calculating change. We do this by editing our main.py to this:
+```
+---main.py
+```
+
+Let’s check our repository’s status by running git status. 
+![status modified file](/modified.png)
+
+Our main.py files is now in the modified state and is ready to be added and then committed. We can do that with the `git add` and `git commit` commands respectively.
+
+![final commit](/final.png)
+
+It’s always a good idea to run `git status` after every command so we can see the effects of the command you ran. As you can see, our file has been committed and our working tree is clean.
+
+### Git Log
+
+Another useful command is the `git log` command to see the history of our commits. This can show us every snapshot and the some information about the snapshot. We can see the hash of the commit, which is a unique string used to identify the commit; the author of the commit; the date of the commit; and the commit message.
+
+```
+git log
+```
+
+![git log](/git_log.png)
+
+## Conclusion
+There are many other git commands that you might find useful but these are the basic ones to help you understand how git works by showing you a complete git workflow. Git is an essential tool for software development and understanding how it works enables the users to work effectively in a team. It is used professionally for managing source control and even academically for smaller projects. 
+
+
+
 
 
 ## References
 
-- Linux Foundation. “10 Years of Git: An Interview with Git Creator Linus Torvalds.” 22 Aug. 2017, 
-www.linuxfoundation.org/blog/10-years-of-git-an-interview-with-git-creator-linus-torvalds
-- Microsoft. “History in Git.” Visual Studios Team Services, 14 Mar. 2018, 	
-docs.microsoft.com/en-us/vsts/git/concepts/history?view.
-- Stack Overflow. “Stack Overflow Developer Survey 2018” 2018 Developer Survey Results, 
-2018, https://insights.stackoverflow.com/survey/2018
+- [1] Git, "Getting Started - About Version Control," 2014. [Online]. Available:
+     https://git-scm.com/book/en/v2/Getting-Started-About-Version-Control. [Accessed 2018].
+- [2]
+Google, Director, Tech Talk: Linus Torvalds on Git. [Film]. Youtube, 2007. [Accessed 2018].
+- [3]
+L. Foundation, "10 Years of Git: An Interview with Git Creator Linus Torvalds," 22 August 2017. [Online]. Available: www.linuxfoundation.org/blog/10-years-of-git-an-interview-with-git-creator-linus-torvalds. [Accessed 2018].
+- [4]
+Microsoft, "History in Git," 14 March 2018. [Online]. Available: docs.microsoft.com/en-us/vsts/git/concepts/history?view. [Accessed 2018].
+- [5]
+Stack Overflow, "Stack Overflow Developer Survey 2018," 2018. [Online]. Available: https://insights.stackoverflow.com/survey/2018. [Accessed 2018].
+
 
 
 
