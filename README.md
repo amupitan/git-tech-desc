@@ -1,5 +1,5 @@
 # How Git Works
-## I. The history of version control and definition of Version control
+## History of Git
 Software engineers have been faced with the issue of how best to efficiently and effectively share code since the advent of their profession. Engineers have tried sending code through email or uploading their code to a storage for everyone else to see but this became impractical as code size changes [2].In Linus Torvalds’ talk at Google, he talked about how it took a company three days to merge all the code from everyone and how everyone would have to stop working for those three days. Even though this inconvenient method worked, it still came with its drawbacks. For example, once all the code was published, it was tiring to rollback to a previous version if an error was detected. Engineers would have to manually detect what point that error was introduced to the code and then change the code back to its previous state if needed. This was obviously inconvenient and led to the creation of version control [1]. 
 
 Version control is a system that tracks the changes to a file, or set of files over time so it can be rollbacked to a previous version. Version control systems were created and used but eventually they all became commercial and none of them supported free software. This was a problem for the development of the Linux Operating system because it was a free software and couldn’t afford to pay for version control. 
@@ -7,7 +7,7 @@ Version control is a system that tracks the changes to a file, or set of files o
 
 Fed up with then current systems, the developer of the Linux Kernel, Linus Torvalds, and his team wanted an alternative system to manage their project [2]. Their criteria specified that saving revisions should take no more than three minutes. Furthermore, they took preceding systems such as Concurrent Version System (CVS) as examples of what not to make. Consequently, the control system they would create was designed as a distributed version control architecture. Distributed revision control refers to copying an entire project including the history of all the changed rather than just copying the current version. Their solution came to be called Git and has since grown into the most popular version control system amongst developers. Git is a version control system (VCS) for managing electronic files and collaboration that is characterized by its distributed revision control design. 
 
-## II. Examples of version control systems
+## Examples of version control systems
 The version control systems Concurrent Version System (CVS), Subversion, and Mercurial were all designed to address the issues of revision management that were plaguing software engineers. The designs of of each system reveal the evolution of revision control leading to Git with each system offering various features and limitations to the users.
 
 CVS is the oldest of the three management systems, first released in 1990. The system was modeled around a client to server architecture, meaning that file changes are made on the user’s computer then stored on a central computer server. Although the decentralized design differs significantly from Git, it is often desirable to have a single source of revision on professional projects. Nevertheless, the system has become antiquated for usage on modern projects. Regardless, CVS pioneered version control technology and inspired newer software such as Subversion. 
@@ -17,19 +17,19 @@ Released in 2000, Subversion was a compatible successor to CVS. Like its predece
 Mercurial, released 2005, strayed from the centralized approaches of CVS and Subversion to address the issue of revision control. Instead of single server storage, Mercurial deploys the idea of distributed version control. This alternative design does not rely on a central server to store all the old copies of a file. Rather, the system creates copies of the files locally to store the full history of the project. The decentralized version control systems currently possess the majority usage amongst professional developers because of the ability to make changes and maintain revision control running while not connected to the centralized server. Git and Mercurial operate under the same design concepts.
  
 
-## III. Comparison of the internal workings of some popular systems to Git 
+## Git compared to some popular version control systems
 Centralized version control systems addressed the majority of early issues that software engineers experienced while sharing or saving code. A central server housed the storage of the version history for each file. Users would maintain the latest version of the file on their computer and could change their local copy to any older version by downloading the information from the central server. 
 
 One downfall of this approach is that in the event of a breakdown of the central server, the entire history of the files would be lost. The only copies remaining would be the current version saved on each user’s computer. Therefore, the restoration of the full file history would be impossible. 
 
 This issue encouraged the development of decentralized systems to offer a solution. With decentralized VCSs, such as Git, each user stores the entire history of the file locally. Consequently, each user’s computer operates similar to the central server in systems such as CVS or Subversion. As a result, the entire project can be restored by any one of the users.
 
-## IV. The snapshot concept
+## The snapshot concept
 A repository is a folder that is being tracked by Git. Each step in the version history of a repository is called a commit. Most version control systems, such as Subversion, store a file and then the changes between each commit of that file. On the other hand, Git stores an entire snapshot of the repository in each commit. If a file hasn’t changed, Git uses a link to a previous version of that file rather than making an identical copy, to be more efficient. The data can be seen as a stream of snapshots with each snapshot being referenced by a commit. This way, Git can create branches from a snapshot and maintain several versions. The figure below shows an example of four different commits or versions inside a repository. The dashed line boxes indicate a file that has not changed between versions. The black arrows between identical files depicts how Git avoids making duplicate files when no changes are made by referencing back to the original file in the first commit that it appears.
 
 ![Snapshot concept](/snapshot.png)
 
-## V. Real-world example of Git versioning stages
+## A Real world example of Git versioning stages
 Files in a repository have to be selected before they are committed. This way, you can choose what files you want in the commit. Git manages this by having three levels: the working directory, the staging area and the local repository. A file can at one of these levels depending on what the current state of the file is. A file can either be in the untracked, committed, modified, or staged state.
 
 ### Working Directory
@@ -47,7 +47,7 @@ Think of a remote repository as a backup of your git repository that is stored o
 
 ![Git Workflow](/workflow.png)
 
-## Using Git commands to see the workflow [REWORD]
+## Using Git commands to see the Git workflow
 We will go over some git commands and how they show the git workflow. These examples are done in a git terminal. Getting a git terminal is out of scope of this description as we focus on how it works, however, you can download the program and find installation instructions on Git’s website at www.git-scm.com/downloads.
 
 
@@ -61,7 +61,7 @@ git init
 Now that we have a repository, we can add file(s) to our repository. We can create a new python file called `main.py` in our directory. Our program will be a change calculator that prompts the user for the price of the item and the amount given and will return the amount of $1 bills, dimes, nickels and pennies. This is what it should look like:
 
 
-**[main.py](/example.py)**
+**<span>main.py</span>**
 ```python
 # get the price from the user
 price = float(raw_input('Please enter the transaction price.\n'))
@@ -120,7 +120,7 @@ We can now check the status of our files using the  `git status` command.
 
 ![check git status](/check_status.png)
 
-Now we can see our README in green which means it is in the staging area and ready to be committed. We can also see that main.py has remained in the untracked state.
+Now we can see our README in green which means it is in the staging area and ready to be committed. We can also see that `main.py` has remained in the untracked state.
 
 ### Git Commit
 Since our README file is in the staging area, it is ready to be committed. We can run the `git commit` command to create a commit. We give our commit a name so we can look back at what we did in that commit without manually looking through the changes. 
