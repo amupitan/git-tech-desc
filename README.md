@@ -1,11 +1,11 @@
 # How Git Works
 ## History of Git
-Software engineers have been faced with the issue of how best to efficiently and effectively share code since the advent of their profession. Engineers have tried sending code through email or uploading their code to a storage for everyone else to see but this became impractical as code size changes [[2]](#ref2).In Linus Torvalds’ talk at Google, he talked about how it took a company three days to merge all the code from everyone and how everyone would have to stop working for those three days. Even though this inconvenient method worked, it still came with its drawbacks. For example, once all the code was published, it was tiring to rollback to a previous version if an error was detected. Engineers would have to manually detect what point that error was introduced to the code and then change the code back to its previous state if needed. This was obviously inconvenient and led to the creation of version control [[1]](#ref1). 
+Software engineers have been faced with the issue of how best to efficiently and effectively share code since the advent of their profession. Engineers have tried sending code through email or uploading their code to a storage for everyone else to see but this became impractical as code size changes. In Linus Torvalds’ talk at Google, he talked about how it took a company three days to merge all the code from everyone and how everyone would have to stop working for those three days [[1]](#ref1). Even though this inconvenient method worked, it still came with its drawbacks. For example, once all the code was published, it was tiring to rollback to a previous version if an error was detected. Engineers would have to manually detect what point that error was introduced to the code and then change the code back to its previous state if needed. This was obviously inconvenient and led to the creation of version control [[2]](#ref2). 
 
 Version control is a system that tracks the changes to a file, or set of files over time so it can be rollbacked to a previous version. Version control systems were created and used but eventually they all became commercial and none of them supported free software. This was a problem for the development of the Linux Operating system because it was a free software and couldn’t afford to pay for version control. 
 
 
-Fed up with then current systems, the developer of the Linux Kernel, Linus Torvalds, and his team wanted an alternative system to manage their project [[2]](#ref2). Their criteria specified that saving revisions should take no more than three minutes. Furthermore, they took preceding systems such as Concurrent Version System (CVS) as examples of what not to make. Consequently, the control system they would create was designed as a distributed version control architecture. Distributed revision control refers to copying an entire project including the history of all the changed rather than just copying the current version. Their solution came to be called Git and has since grown into the most popular version control system amongst developers. Git is a version control system (VCS) for managing electronic files and collaboration that is characterized by its distributed revision control design. 
+Fed up with then current systems, the developer of the Linux Kernel, Linus Torvalds, and his team wanted an alternative system to manage their project. Their criteria specified that saving revisions should take no more than three minutes [[1]](#ref1). Furthermore, they took preceding systems such as Concurrent Version System (CVS) as examples of what not to make. Consequently, the control system they would create was designed as a distributed version control architecture. Distributed revision control refers to copying an entire project including the history of all the changed rather than just copying the current version. Their solution came to be called Git and has since grown into the most popular version control system amongst developers [[3]](#ref3). Git is a version control system (VCS) for managing electronic files and collaboration that is characterized by its distributed revision control design. 
 
 ## Examples of version control systems
 The version control systems Concurrent Version System (CVS), Subversion, and Mercurial were all designed to address the issues of revision management that were plaguing software engineers. The designs of of each system reveal the evolution of revision control leading to Git with each system offering various features and limitations to the users.
@@ -206,16 +206,16 @@ There are many other git commands that you might find useful but these are the b
 
 ## References
 
-- <span id="ref1">[1]</span> Git, "Getting Started - About Version Control," 2014. [Online]. Available:
-     https://git-scm.com/book/en/v2/Getting-Started-About-Version-Control. [Accessed 2018].
-- <span id="ref2">[2]</span>
+- <span id="ref1">[1]</span>
 Google, Director, Tech Talk: Linus Torvalds on Git. [Film]. Youtube, 2007. [Accessed 2018].
+- <span id="ref2">[2]</span> Git, "Getting Started - About Version Control," 2014. [Online]. Available:
+     https://git-scm.com/book/en/v2/Getting-Started-About-Version-Control. [Accessed 2018].
 - <span id="ref3">[3]</span>
-L. Foundation, "10 Years of Git: An Interview with Git Creator Linus Torvalds," 22 August 2017. [Online]. Available: www.linuxfoundation.org/blog/10-years-of-git-an-interview-with-git-creator-linus-torvalds. [Accessed 2018].
+Stack Overflow, "Stack Overflow Developer Survey 2018," 2018. [Online]. Available: https://insights.stackoverflow.com/survey/2018. [Accessed 2018].
 - <span id="ref4">[4]</span>
 Microsoft, "History in Git," 14 March 2018. [Online]. Available: docs.microsoft.com/en-us/vsts/git/concepts/history?view. [Accessed 2018].
 - <span id="ref5">[5]</span>
-Stack Overflow, "Stack Overflow Developer Survey 2018," 2018. [Online]. Available: https://insights.stackoverflow.com/survey/2018. [Accessed 2018].
+L. Foundation, "10 Years of Git: An Interview with Git Creator Linus Torvalds," 22 August 2017. [Online]. Available: www.linuxfoundation.org/blog/10-years-of-git-an-interview-with-git-creator-linus-torvalds. [Accessed 2018].
 
 
 
