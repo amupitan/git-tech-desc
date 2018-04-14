@@ -33,22 +33,22 @@ A repository is a folder that is being tracked by Git. Each step in the version 
 Files in a repository have to be selected before they are committed. This way, you can choose what files you want in the commit. Git manages this by having three levels: the working directory, the staging area and the local repository. A file can at one of these levels depending on what the current state of the file is. A file can either be in the untracked, committed, modified, or staged state.
 
 ### Working Directory
-By default, a new file is in the working directory and not yet part of the git repository. The files in this level are in the untracked state and not yet tracked by Git.
+By default, a new file is in the working directory and not yet part of the Git repository. The files in this level are in the untracked state and not yet tracked by Git.
 
 ### Staging Area
-Whenever a file is added to a git repository, it is moved from the working directory to the staging area and is in the staged state. Multiple files can be added to the staging area. 
+Whenever a file is added to a Git repository, it is moved from the working directory to the staging area and is in the staged state. Multiple files can be added to the staging area. 
 
 ### Git Repository
 The staging area can then be committed, which moves all the files from the staging area to the Git repository. All the previously staged files which were committed are now in the committed state. A new snapshot is created at this point.
 Whenever a file that has already been staged is modified, it becomes in the modified state. This file can then be added to staging area and committed again. After the commit, a new snapshot is created, and the file is captured in the new snapshot. 
 
 ### Remote Repository
-Think of a remote repository as a backup of your git repository that is stored online. When you want to share your repository with others, you upload it to a remote storage. A popular example of this is Github or BitBucket. After you upload your repository, it can be downloaded and viewed by other people. This is generally how people collaborate on a repository - they all have their individual local copies but share a remote version that they can upload to. In the event that you lose your local copy of your repository, you can always download it from the remote storage. We will not discuss this because it is out of scope on how git works.
+Think of a remote repository as a backup of your Git repository that is stored online. When you want to share your repository with others, you upload it to a remote storage. A popular example of this is Github or BitBucket. After you upload your repository, it can be downloaded and viewed by other people. This is generally how people collaborate on a repository - they all have their individual local copies but share a remote version that they can upload to. In the event that you lose your local copy of your repository, you can always download it from the remote storage. We will not discuss this because it is out of scope on how Git works.
 
 ![Git Workflow](/workflow.png)
 
 ## Using Git commands to see the Git workflow
-We will go over some git commands and how they show the git workflow. These examples are done in a git terminal. Getting a git terminal is out of scope of this description as we focus on how it works, however, you can download the program and find installation instructions on Git’s website at www.git-scm.com/downloads.
+We will go over some Git commands and how they show the Git workflow. These examples are done in a Git terminal. Getting a Git terminal is out of scope of this description as we focus on how it works, however, you can download the program and find installation instructions on Git’s website at www.git-scm.com/downloads.
 
 
 ### Git init
@@ -97,8 +97,8 @@ Another file people tend to add in their Git repository is a `README` file. This
 This is a repository for a change calculator program in python 
 ```
 
-### Git status
-A helpful command in Git is the `git status` command. It is used to check the state of the files in the repository. If you run git status, you will see that `main.py` and `README` are under the “untracked files” section in red.
+### Git Status
+A helpful command in Git is the `git status` command. It is used to check the state of the files in the repository. If you run `git status`, you will see that `main.py` and `README` are under the “untracked files” section in red.
 
 ```
 git status
@@ -137,7 +137,7 @@ We have just created out first commit (also known as the root commit). We can no
 
 Uh-oh! Our README file is gone! That’s actually a good thing. This means our README file has been committed and is no longer in the staging area.
 
-We have just gone through a complete workflow of a git repository. Let’s add our `main.py` file to our repository and check the status of our repository.
+We have just gone through a complete workflow of a Git repository. Let’s add our `main.py` file to our repository and check the status of our repository.
 
 ![git add commit](/git_add_commit.png)
 
@@ -196,7 +196,7 @@ git log
 ![git log](/git_log.png)
 
 ## Conclusion
-There are many other git commands that you might find useful but these are the basic ones to help you understand how git works by showing you a complete git workflow. Git is an essential tool for software development and understanding how it works enables the users to work effectively in a team. It is used professionally for managing source control and even academically for smaller projects. 
+There are many other Git commands that you might find useful but these are the basic ones to help you understand how Git works by showing you a complete Git workflow. Git is an essential tool for software development and understanding how it works enables the users to work effectively in a team. It is used professionally for managing source control and even academically for smaller projects. 
 
 ## Authors
 - Ashley Mace
