@@ -58,20 +58,51 @@ This is used to create a new Git repository. We will create a new folder and in 
 git init
 ```
 
-Now that we have a repository, we can add file(s) to our repository. We can create a new python file called `main.py` in our directory. We can then type in the following into the file:
+Now that we have a repository, we can add file(s) to our repository. We can create a new python file called `main.py` in our directory. Our program will be a change calculator that prompts the user for the price of the item and the amount given and will return the amount of $1 bills, dimes, nickels and pennies. This is what it should look like:
+
+
+**[main.py](/example.py)**
+```python
+# get the price from the user
+price = float(raw_input('Please enter the transaction price.\n'))
+
+# get the amount given from the user
+given = float(raw_input('Please enter the amount the customer gave.\n'))
+
+change = (given - price) * 100  # Multiply by 100 to prevent imprecisions
+
+ones = int(change / 100)
+change %= 100
+dimes = int(change / 10)
+change %= 10
+nickels = int(change / 5)
+change %= 5
+pennies = int(change)
+
+print '\nChange:'
+print str(ones) + ' $1 bills'
+print str(dimes) + ' dimes'
+print str(nickels) + ' nickels'
+print str(pennies) + ' pennies'
+
+raw_input('\nPress Enter to close...')
+
 ```
----main.py---
-print ‘This is the first file in our Git repository’
-```
-Another file people tend to add in their Git repository is a README file. This is just a file that describes what the repository is about. Let us create a new file and name it README. We can edit the file to this:
-```
----README---
-This is a repository about learning how Git works
-------
+Another file people tend to add in their Git repository is a `README` file. This is a file that describes what the repository is about. Let us create a new file and name it README. We can edit the file to this:
+
+**README**:
+```markdown
+# Change Calculator
+
+This is a repository for a change calculator program in python 
 ```
 
 ### Git status
 A helpful command in Git is the `git status` command. It is used to check the state of the files in the repository. If you run git status, you will see that `main.py` and `README` are under the “untracked files” section in red.
+
+```
+git status
+```
 
 ![git status](/git_status.png)
 
@@ -85,14 +116,18 @@ git add README
 
 ![git add](/git_add.png)
 
-We can now check the status of our files using `git status`.
+We can now check the status of our files using the  `git status` command.
 
 ![check git status](/check_status.png)
 
 Now we can see our README in green which means it is in the staging area and ready to be committed. We can also see that main.py has remained in the untracked state.
 
 ### Git Commit
-Since our README file is in the staging area, it is ready to be committed. We can run the “git commit” command to create a commit. We give our commit a name so we can look back at what we did in that commit without looking through the changes. We run `git commit -m <name of commit>`.
+Since our README file is in the staging area, it is ready to be committed. We can run the `git commit` command to create a commit. We give our commit a name so we can look back at what we did in that commit without manually looking through the changes. 
+
+```
+git commit -m <name of commit>
+```
 
 ![git commit](/git_commit.png)
 
@@ -100,30 +135,56 @@ We have just created out first commit (also known as the root commit). We can no
 
 ![check git status](/check_status2.png)
 
-Uh-oh. Our README file is gone! That’s actually a good thing. This means our README file has been committed and is no longer in the staging area.
+Uh-oh! Our README file is gone! That’s actually a good thing. This means our README file has been committed and is no longer in the staging area.
 
-We have gone through a complete workflow of a git repository. Let’s add our main.py file and check the status of our repository.
+We have just gone through a complete workflow of a git repository. Let’s add our `main.py` file to our repository and check the status of our repository.
 
 ![git add commit](/git_add_commit.png)
 
 #### Modifying Files
 We can see that our working tree is clean which means there are no uncommitted changes. Now let’s update our code to use quarters when calculating change. We do this by editing our main.py to this:
-```
----main.py
+```python
+# get the price from the user
+price = float(raw_input('Please enter the transaction price.\n'))
+
+# get the amount given from the user
+given = float(raw_input('Please enter the amount the customer gave.\n'))
+
+change = (given - price) * 100  # Multiply by 100 to prevent imprecisions
+
+ones = int(change / 100)
+change %= 100
+quarters = int(change / 25)
+change %= 25
+dimes = int(change / 10)
+change %= 10
+nickels = int(change / 5)
+change %= 5
+pennies = int(change)
+
+print '\nChange:'
+print str(ones) + ' $1 bills'
+print str(quarters) + ' quarters'
+print str(dimes) + ' dimes'
+print str(nickels) + ' nickels'
+print str(pennies) + ' pennies'
+
+raw_input('\nPress Enter to close...')
+
 ```
 
 Let’s check our repository’s status by running git status. 
 ![status modified file](/modified.png)
 
-Our main.py files is now in the modified state and is ready to be added and then committed. We can do that with the `git add` and `git commit` commands respectively.
+Our `main.py` files is now in the modified state and is ready to be added and then committed. We can do that with the `git add` and `git commit` commands respectively.
 
 ![final commit](/final.png)
 
-It’s always a good idea to run `git status` after every command so we can see the effects of the command you ran. As you can see, our file has been committed and our working tree is clean.
+It’s always a good idea to run `git status` after every command so we can see the effects of the command we ran. As you can see, our file has been committed and our working tree is clean.
 
 ### Git Log
 
-Another useful command is the `git log` command to see the history of our commits. This can show us every snapshot and the some information about the snapshot. We can see the hash of the commit, which is a unique string used to identify the commit; the author of the commit; the date of the commit; and the commit message.
+Another useful command is the `git log` command. It is used to check the history of our commits. This can show us every snapshot and the some information about the snapshot. We can see the hash of the commit, which is a unique string used to identify the commit; the author of the commit; the date of the commit; and the commit message.
 
 ```
 git log
@@ -134,9 +195,11 @@ git log
 ## Conclusion
 There are many other git commands that you might find useful but these are the basic ones to help you understand how git works by showing you a complete git workflow. Git is an essential tool for software development and understanding how it works enables the users to work effectively in a team. It is used professionally for managing source control and even academically for smaller projects. 
 
-
-
-
+## Authors
+- Ashley Mace
+- Ian Gottshall
+- Tom Bjorlin
+- Victor Amupitan
 
 ## References
 
